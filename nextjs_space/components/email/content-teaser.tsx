@@ -1,5 +1,4 @@
 import React from "react";
-import { EmailSection } from "./section";
 import { ButtonProps, EmailButton } from "./button";
 import { EmailImage, ImageProps } from "./image";
 import { EmailTypography, TypographyProps } from "./typography";

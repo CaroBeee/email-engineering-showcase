@@ -3,7 +3,7 @@ import { EmailButton } from "./button";
 import { EmailImage, ImageProps } from "./image";
 import { EmailTypography } from "./typography";
 import { DesignTokens } from "@/lib/design-tokens";
-import { Locale, getMailTranslation, getTranslation } from "@/lib/i18n";
+import { Locale, getMailTranslation } from "@/lib/i18n";
 
 interface BadgeProps {
   type: "limited" | "new" | "sale" | "bestseller";

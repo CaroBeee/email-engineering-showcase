@@ -6,18 +6,15 @@ import {
   EmailSection,
   EmailButton,
   EmailTypography,
-  EmailImage,
   EmailColumnLayout,
   EmailPreheader,
 } from "../email";
 import { DesignTokens, defaultTheme } from "@/lib/design-tokens";
 import {
-  MailTemplate,
-  MailTemplateView,
   generateMailHtml,
   generateViewMail,
 } from "./mail-template";
-import { Locale, getMailTranslation, getTranslation } from "@/lib/i18n";
+import { Locale, getMailTranslation } from "@/lib/i18n";
 import { EmailProduct } from "../email/product";
 import { EmailMainProduct } from "../email/main-product";
 

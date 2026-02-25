@@ -66,18 +66,18 @@ export function MailTemplateView({
           __html: forceDarkMode === true ? darkModeOverride : "",
         }}
       />
-      <MailTemplate children={children} />
+      {/* <MailTemplate children={children} /> */}
+      <MailTemplate>{children}</MailTemplate>
     </>
   );
 }
 
-export  function generateViewMail(
+export function generateViewMail(
   tokens: DesignTokens = defaultTheme,
   forceDarkMode: boolean,
   component: React.ReactElement,
 ) {
-
-   const darkModeOverride = `
+  const darkModeOverride = `
    
       /* Force Dark Mode */
   
@@ -101,7 +101,10 @@ export  function generateViewMail(
           __html: forceDarkMode === true ? darkModeOverride : "",
         }}
       />
-      <MailTemplate children={component} />
+      <MailTemplate>{component}</MailTemplate>
+       <MailTemplateView>{component}</MailTemplateView>
+      {/* <MailTemplate children={component} />
+      <MailTemplateView children={component} /> */}
     </>
   );
 }

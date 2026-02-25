@@ -4,17 +4,12 @@ import {
   EmailContainer,
   EmailButton,
   EmailTypography,
-  EmailImage,
   EmailPreheader,
   EmailSection,
 } from "../email";
 import { DesignTokens, defaultTheme } from "@/lib/design-tokens";
-import {
-  generateViewMail,
-  MailTemplateView,
-  generateMailHtml,
-} from "./mail-template";
-import { Locale, getMailTranslation, getTranslation } from "@/lib/i18n";
+import { generateViewMail, generateMailHtml } from "./mail-template";
+import { Locale, getMailTranslation } from "@/lib/i18n";
 import { EmailMainTeaser } from "../email/main-teaser";
 import { EmailContentTeaser } from "../email/content-teaser";
 
@@ -73,6 +68,8 @@ export function NewsletterTemplate({
             tokens={tokens}
             image={{
               src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=680&h=300&fit=crop",
+              width: 680,
+              height: 300,
               alt: getText(
                 "newsletter.mainArticle.imageAlt",
                 t.newsletter.mainArticle.imageAlt,

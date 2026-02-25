@@ -29,7 +29,7 @@ export function EmailFacts({ locale }: EmailFactsProps) {
         <div className="grid md:grid-cols-2 gap-6">
           {sectionConfig.map((section) => {
             const Icon = section.icon;
-            const sectionData = t.emailFacts[section.key as keyof typeof t.emailFacts] as { title: string; items: string[] };
+            const sectionData = t.emailFacts[section.key as keyof typeof t.emailFacts] as unknown as { title: string; items: string[] };
             
             return (
               <div

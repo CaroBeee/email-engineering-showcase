@@ -6,7 +6,6 @@ import {
   Globe,
   Smartphone,
   Apple,
-  Sun,
   Moon,
   CheckCircle2,
   XCircle,

@@ -14,6 +14,7 @@ export function EmailPreheader({
       style={{
         display: "none",
         visibility: "hidden",
+        // @ts-expect-error msoHide is not defined
         msoHide: "all",
         fontSize: "1px",
         color: "#ffffff",

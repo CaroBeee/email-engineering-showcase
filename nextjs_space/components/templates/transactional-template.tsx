@@ -10,11 +10,10 @@ import {
 } from "../email";
 import { DesignTokens, defaultTheme } from "@/lib/design-tokens";
 import {
-  MailTemplateView,
   generateMailHtml,
   generateViewMail,
 } from "./mail-template";
-import { Locale, getMailTranslation, getTranslation } from "@/lib/i18n";
+import { Locale, getMailTranslation } from "@/lib/i18n";
 
 interface TransactionalTemplateProps {
   tokens?: DesignTokens;

@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState,  useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Code2, Palette, Shield, Zap, Github } from "lucide-react";
 import type { Locale } from "@/lib/i18n";
 import { getTranslation } from "@/lib/i18n";
 import { Sun, Moon } from "lucide-react";
-import { ThemeId, themes, getTheme } from "@/lib/design-tokens";
+import { ThemeId,  getTheme } from "@/lib/design-tokens";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { DarkModeToggle } from "@/components/ui/dark-mode-toggle";
 import { TemplateCard } from "@/components/ui/template-card";
@@ -19,17 +19,17 @@ import {
   TokenPreviewPanel,
 } from "@/components/ui/theme-switcher";
 import {
-  ProductGridTemplate,
+  
   productGridHtmlCode,
   productGridViewTemplate,
 } from "@/components/templates/product-grid-template";
 import {
-  TransactionalTemplate,
+  
   transactionalHtmlCode,
   transactionalViewTemplate,
 } from "@/components/templates/transactional-template";
 import {
-  NewsletterTemplate,
+  
   newsletterHtmlCode,
   newsletterViewTemplate,
 } from "@/components/templates/newsletter-template";
