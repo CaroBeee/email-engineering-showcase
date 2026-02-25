@@ -1,0 +1,40 @@
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+  .email-container {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .email-column {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .email-teaser-column {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+  }
+  .email-teaser-column--first {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-bottom: 20px !important;
+  }
+  .email-stack {
+    display: block !important;
+    width: 100% !important;
+  }
+  .email-center-mobile {
+    text-align: center !important;
+  }
+  .email-hide-mobile {
+    display: none !important;
+  }
+
+  .product-grid-layout .email-column {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-bottom: 15px;
+  }
+}
