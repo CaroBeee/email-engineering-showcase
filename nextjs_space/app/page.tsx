@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState,  useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Code2, Palette, Shield, Zap, Github } from "lucide-react";
 import type { Locale } from "@/lib/i18n";
 import { getTranslation } from "@/lib/i18n";
 import { Sun, Moon } from "lucide-react";
-import { ThemeId,  getTheme } from "@/lib/design-tokens";
+import { ThemeId, getTheme } from "@/lib/design-tokens";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { DarkModeToggle } from "@/components/ui/dark-mode-toggle";
 import { TemplateCard } from "@/components/ui/template-card";
@@ -19,17 +19,14 @@ import {
   TokenPreviewPanel,
 } from "@/components/ui/theme-switcher";
 import {
-  
   productGridHtmlCode,
   productGridViewTemplate,
 } from "@/components/templates/product-grid-template";
 import {
-  
   transactionalHtmlCode,
   transactionalViewTemplate,
 } from "@/components/templates/transactional-template";
 import {
-  
   newsletterHtmlCode,
   newsletterViewTemplate,
 } from "@/components/templates/newsletter-template";
@@ -80,6 +77,7 @@ const features = [
 
 export default function HomePage() {
   const [locale, setLocale] = useState<Locale>("de");
+  const [localeMail, setLocaleMail] = useState<Locale>("en");
   const [activeTemplateId, setActiveTemplateId] = useState(
     templateDefinitions[0].id,
   );
@@ -99,7 +97,11 @@ export default function HomePage() {
 
   useEffect(() => {
     const generateCode = async () => {
-      const code = await activeTemplate.generateHtml(tokens);
+      const code = await activeTemplate.generateHtml(
+        tokens,
+        localeMail,
+        showPlaceholders,
+      );
       setCurrentHtmlCode(code);
     };
     generateCode();
@@ -197,6 +199,8 @@ export default function HomePage() {
                     description={template.description[locale]}
                     onClick={() => setActiveTemplateId(template.id)}
                     isActive={activeTemplateId === template.id}
+                    journeyHref={`/journey/${template.id}`}
+                    journeyLabel={locale === "de" ? "Entwicklungsreise" : "Dev Journey"}
                   />
                 ))}
               </div>
@@ -240,7 +244,10 @@ export default function HomePage() {
                 previewLabel={t?.preview ?? "Preview"}
                 codeLabel={t?.code ?? "Code"}
               />
-              <MailLanguageSwitcher locale={locale} onChange={setLocale} />
+              <MailLanguageSwitcher
+                locale={localeMail}
+                onChange={setLocaleMail}
+              />
               {/* Email Dark Mode Toggle*/}
               <div className="flex items-center gap-1 bg-gray-100 dark:bg-[#313244] rounded-lg p-1">
                 <button
@@ -273,11 +280,12 @@ export default function HomePage() {
                 >
                   <div className="overflow-auto max-h-[700px]">
                     <ActiveComponent
-                      {...tokens}
+                      tokens={tokens}
                       forceDarkMode={emailDarkMode}
-                      locale={locale}
+                      locale={localeMail}
                       showPlaceholders={showPlaceholders}
                     />
+                    {/*{JSON.stringify(tokens, null, 2)} */}
                   </div>
                 </motion.div>
               ) : (

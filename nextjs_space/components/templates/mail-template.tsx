@@ -38,7 +38,7 @@ export function MailTemplate({ children }: MailTemplateProps) {
 }
 
 export function MailTemplateView({
-  forceDarkMode = true,
+  forceDarkMode,
   tokens,
   children,
 }: MailTemplateProps) {
@@ -67,7 +67,7 @@ export function MailTemplateView({
         }}
       />
       {/* <MailTemplate children={children} /> */}
-      <MailTemplate>{children}</MailTemplate>
+      <MailTemplate tokens={tokens}>{children}</MailTemplate>
     </>
   );
 }
@@ -101,8 +101,8 @@ export function generateViewMail(
           __html: forceDarkMode === true ? darkModeOverride : "",
         }}
       />
-      <MailTemplate>{component}</MailTemplate>
-       <MailTemplateView>{component}</MailTemplateView>
+      {/* <MailTemplate>{component}</MailTemplate> */}
+      <MailTemplateView tokens={tokens}>{component}</MailTemplateView>
       {/* <MailTemplate children={component} />
       <MailTemplateView children={component} /> */}
     </>
@@ -129,7 +129,7 @@ export async function generateMailHtml(
   const fullHtml = `<!DOCTYPE html>
 <html lang="de" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
-  <meta http-equiv="Content-Type" content="text/html charset=utf-8"/>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="x-apple-disable-message-reformatting" />

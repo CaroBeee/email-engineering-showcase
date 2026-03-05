@@ -55,7 +55,7 @@ export function EmailTypography({
   lineHeight,
   margin,
   textAlign = "left",
-  className = "",
+  className = "typo",
   style,
 }: TypographyProps) {
   const defaults = defaultStyles[as] ?? defaultStyles.p;

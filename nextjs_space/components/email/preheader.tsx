@@ -5,10 +5,7 @@ interface EmailPreheaderProps {
   className?: string;
 }
 
-export function EmailPreheader({
-  children,
-  className = "",
-}: EmailPreheaderProps) {
+export function EmailPreheader({ children, className }: EmailPreheaderProps) {
   return (
     <div
       style={{
